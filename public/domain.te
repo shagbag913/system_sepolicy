@@ -1025,6 +1025,7 @@ full_treble_only(`
       -same_process_hal_file
       -vndk_sp_file
       -vendor_app_file
+      vendor_file
     }:file execute;
 ')
 
@@ -1033,7 +1034,9 @@ full_treble_only(`
       coredomain
       -shell
       -system_executes_vendor_violators
-    } vendor_file_type:file execute_no_trans;
+    } {
+      vendor_file
+    }:vendor_file_type:file execute_no_trans;
 ')
 
 # Only authorized processes should be writing to files in /data/dalvik-cache
